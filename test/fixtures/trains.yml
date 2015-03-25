@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  max_speed: 1
+  no_of_seats: 1
+  no_of_toilets: 1
+  reclining_seats: false
+  folding_tables: false
+  disability_access: false
+  luggage_storage: false
+  vending_machines: false
+  food_service: false
+
+two:
+  model: MyString
+  max_speed: 1
+  no_of_seats: 1
+  no_of_toilets: 1
+  reclining_seats: false
+  folding_tables: false
+  disability_access: false
+  luggage_storage: false
+  vending_machines: false
+  food_service: false

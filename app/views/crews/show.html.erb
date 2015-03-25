@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center;">Ticket Information</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 center">
+    <p>
+      <strong>
+        CREW ID: <%= @crew.id %>
+      </strong>
+    </p>
+       
+    </div>
+    <div class="col-md-6 center">
+
+    <p>
+      <strong>
+        CREW NAME: <%= @crew %>
+      </strong>
+    </p>
+    </div>
+  </div>
+</div>
+<h1 style="text-align:center;">TRIP ITINERARY</h1>
+<table class="table">
+  <thead>
+    <tr class="center">
+      <th>Date</th>
+      <th>Train ID</th>
+      <th>Task</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crew.maintenances.each do |maintenance| %>
+      <tr>
+        <td><%= maintenance.maintenance_date %></td>
+        <td><%= maintenance.train.id %></td>
+        <td><%= maintenance.task %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_crew_path(@crew) %> |
+<%= link_to 'Back', crews_path %>

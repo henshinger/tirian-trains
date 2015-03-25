@@ -1,0 +1,57 @@
+<%= form_for(@train) do |f| %>
+  <% if @train.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@train.errors.count, "error") %> prohibited this train from being saved:</h2>
+
+      <ul>
+      <% @train.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :model %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :max_speed %><br>
+    <%= f.number_field :max_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_seats %><br>
+    <%= f.number_field :no_of_seats %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_toilets %><br>
+    <%= f.number_field :no_of_toilets %>
+  </div>
+  <div class="field">
+    <%= f.label :reclining_seats %><br>
+    <%= f.check_box :reclining_seats %>
+  </div>
+  <div class="field">
+    <%= f.label :folding_tables %><br>
+    <%= f.check_box :folding_tables %>
+  </div>
+  <div class="field">
+    <%= f.label :disability_access %><br>
+    <%= f.check_box :disability_access %>
+  </div>
+  <div class="field">
+    <%= f.label :luggage_storage %><br>
+    <%= f.check_box :luggage_storage %>
+  </div>
+  <div class="field">
+    <%= f.label :vending_machines %><br>
+    <%= f.check_box :vending_machines %>
+  </div>
+  <div class="field">
+    <%= f.label :food_service %><br>
+    <%= f.check_box :food_service %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

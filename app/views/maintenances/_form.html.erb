@@ -1,0 +1,41 @@
+<%= form_for(@maintenance) do |f| %>
+  <% if @maintenance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maintenance.errors.count, "error") %> prohibited this maintenance from being saved:</h2>
+
+      <ul>
+      <% @maintenance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :train_id %><br>
+    <%= f.collection_select :train_id, Train.all, :id, :model, :prompt => true  %>  
+  </div>
+  <div class="field">
+    <%= f.label :crew_id %><br>
+    <%= f.collection_select :crew_id, Crew.all, :id, :to_s, :prompt => true  %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_date %><br>
+    <%= f.date_select :maintenance_date %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_time %><br>
+    <%= f.time_select :maintenance_time %>
+  </div>
+  <div class="field">
+    <%= f.label :task %><br>
+    <%= f.text_field :task %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.text_field :condition %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

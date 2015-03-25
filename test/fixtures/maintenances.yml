@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train_id: 
+  crew_id: 
+  maintenance_date: 2015-03-17
+  maintenance_time: 2015-03-17 06:16:31
+  task: MyString
+  condition: MyString
+
+two:
+  train_id: 
+  crew_id: 
+  maintenance_date: 2015-03-17
+  maintenance_time: 2015-03-17 06:16:31
+  task: MyString
+  condition: MyString

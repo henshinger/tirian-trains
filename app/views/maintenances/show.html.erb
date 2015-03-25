@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train:</strong>
+  <%= @maintenance.train %>
+</p>
+
+<p>
+  <strong>Crew:</strong>
+  <%= @maintenance.crew %>
+</p>
+
+<p>
+  <strong>Maintenance date:</strong>
+  <%= @maintenance.maintenance_date %>
+</p>
+
+<p>
+  <strong>Maintenance time:</strong>
+  <%= @maintenance.maintenance_time %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @maintenance.task %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @maintenance.condition %>
+</p>
+
+<%= link_to 'Edit', edit_maintenance_path(@maintenance) %> |
+<%= link_to 'Back', maintenances_path %>

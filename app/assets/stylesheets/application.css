@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.full {
+    background: url('https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10343002_10204896608429677_532261897617489872_n.jpg?oh=91e48824265dd2cf006e1ac6b44cc42d&oe=55B04C7B&__gda__=1437894722_f9888b72dbd27a066944796aa2a59ee8') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+body {
+    margin-top: 55px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+  
+.layer {
+    background-color: rgba(192, 162, 106, 0.8);
+    position: absolute;
+    top: 10% ;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    padding: 2%;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.layer h1 {
+  color: rgb(30, 80, 250);
+}
+ 
+.center {
+  font-size: 1.5em;
+  text-align:center;
+}

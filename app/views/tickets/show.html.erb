@@ -1,0 +1,104 @@
+<!--
+<p>
+  <strong>Customer:</strong>
+  <%= @ticket.customer %>
+</p>
+
+<p>
+  <strong>Purchase date:</strong>
+  <%= @ticket.purchase_date %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
+-->
+
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center;">Ticket Information</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 center">
+    <p>
+      <strong>
+        CUSTOMER ID: <%= @ticket.customer.id %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        LAST NAME: <%= @ticket.customer.last_name.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        BIRTH DATE: <%= @ticket.customer.birthdate.strftime("%B %e, %Y").upcase %>
+      </strong>
+    </p>
+    
+    </div>
+    <div class="col-md-4 center">
+    <p>
+      <br />
+    </p>
+    <p>
+      <strong>
+        GIVEN NAME: <%= @ticket.customer.given_name.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        GENDER: <%= @ticket.customer.gender.upcase %>
+      </strong>
+    </p>
+    </div>
+    <div class="col-md-4 center">
+    <p>
+      <strong>
+        DATE: <%= @ticket.purchase_date.strftime("%B %e, %Y").upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        MIDDLE NAME: <%= @ticket.customer.middle_name.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        TOTAL COST: <%= @ticket.trips.sum(:cost) %> LION COINS
+      </strong>
+    </p>
+    </div>
+  </div>
+</div>
+<h1 style="text-align:center;">TRIP ITINERARY</h1>
+<table class="table">
+  <thead>
+    <tr class="center">
+      <th>Train ID</th>
+      <th>Origin</th>
+      <th>Destination</th> 
+      <th>Departure </th>
+      <th>Arrival </th>
+      <th>Duration</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket.trips.each do |trip| %>
+      <tr>
+        <td><%= trip.train.id %></td>
+        <td><%= trip.route.origin %></td>
+        <td><%= trip.route.destination %></td>
+        <td><%= trip.trip_date.strftime("%H:%M") %></td>
+        <td><%= arrival_time(trip.trip_date, trip.route.duration) %></td>
+        <td><%= human_duration(trip.route.duration) %></td>
+        <td><%= trip.cost %> LC</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary" %> |
+<%= link_to 'Back', tickets_path, class: "btn btn-primary" %> |

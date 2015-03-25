@@ -1,0 +1,101 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center;">Train Maintenance Information</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 center">
+    <p>
+      <strong>
+        TRAIN ID: <%= @train.id %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        MAX SPEED: <%= @train.max_speed %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        RECLINING SEATS: <%= yn(@train.reclining_seats).upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        LUGGAGE STORAGE: <%= yn(@train.luggage_storage).upcase %>
+      </strong>
+    </p>
+    </div>
+    <div class="col-md-4 center">
+    <p>
+      <strong>
+        MODEL: <%= @train.model.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        NO. OF SEATS: <%= @train.no_of_seats %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        FOLDING TABLES: <%= yn(@train.folding_tables).upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        VENDING MACHINES: <%= yn(@train.vending_machines).upcase %>
+      </strong>
+    </p>
+    </div>
+    <div class="col-md-4 center">
+    <p>
+      <br>
+    </p>
+    <p>
+      <strong>
+        NO. OF TOILETS: <%= @train.no_of_toilets %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        DISABILITY ACCESS: <%= yn(@train.disability_access).upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        FOOD SERVICE: <%= yn(@train.food_service).upcase %>
+      </strong>
+    </p>
+    </div>
+  </div>
+</div>
+<h1 style="text-align:center;">Maintenance History</h1>
+<table class="table">
+  <thead>
+    <tr class="center">
+      <th>Date</th>
+      <th>Crew In Charge</th>
+      
+      <th>Task</th>
+      <th>Condition</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maintenances.each do |maintenance| %>
+      <tr>
+        <td><%= maintenance.maintenance_date.strftime('%B %e, %Y') %></td>
+        <td><%= maintenance.crew %></td>
+       
+        <td><%= maintenance.task %></td>
+        <td><%= maintenance.condition %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_train_path(@train), class: "btn btn-primary" %> |
+<%= link_to 'Back', trains_path, class: "btn btn-primary" %> |
+<%= link_to 'New Maintenance', new_maintenance_path(train_id: @train.id), class: "btn btn-primary" %>

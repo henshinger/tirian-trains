@@ -1,0 +1,42 @@
+<h1 style="text-align:center;">SALES REPORT</h1>
+<%= form_tag "/sales", method: :get do %>
+  <div class="row">
+    <div class="">
+      <label>Starting from:</label>
+      <%= date_select nil, :begin_date, selected: @begin_date %>
+    </div>
+    <div class="">
+      <label>Up to:</label>
+      <%= date_select nil, :end_date, selected: @end_date %>
+    </div>
+    
+    <div class="">
+      <%= submit_tag "Search", class: "button postfix" %>
+    </div>
+  </div>
+<% end %>
+<table class="table">
+  <thead>
+    <tr class="center">
+      <th>Route</th>
+      <th>Origin</th>
+      <th>Destination</th> 
+      <th>Duration</th>
+      <th>Revenue</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route%></td>
+        <td><%= route.origin %></td>
+        <td><%= route.destination %></td>
+        <td><%= human_duration(route.duration) %></td>
+        <td><%= compute_sales(route, @begin_date, @end_date) %> LC</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Total Revenues: <%= @sum %> </h3>

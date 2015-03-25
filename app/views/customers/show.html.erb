@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center;">Customer Information</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 center">
+    <p>
+      <strong>
+        CUSTOMER ID: <%= @customer.id %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        LAST NAME: <%= @customer.last_name.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        BIRTH DATE: <%= @customer.birthdate.strftime("%B %e, %Y").upcase %>
+      </strong>
+    </p>
+    
+    </div>
+    <div class="col-md-4 center">
+    <p>
+      <br />
+    </p>
+    <p>
+      <strong>
+        GIVEN NAME: <%= @customer.given_name.upcase %>
+      </strong>
+    </p>
+    <p>
+      <strong>
+        GENDER: <%= @customer.gender.upcase %>
+      </strong>
+    </p>
+    </div>
+    <div class="col-md-4 center">
+    
+    <p>
+      <strong>
+        MIDDLE NAME: <%= @ticket.customer.middle_name.upcase %>
+      </strong>
+    </p>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
